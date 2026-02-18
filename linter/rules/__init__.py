@@ -1,0 +1,1 @@
+from linter.rules.repeated_words import find_repeated_words
