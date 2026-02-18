@@ -12,7 +12,7 @@ from rules.repeated_words import find_repeated_words
 
 
 
-book = epub.read_epub(r'C:\Users\Tanveer\PycharmProjects\textLinter\test_data\Upshift.epub')
+book = epub.read_epub(r'') #file path
 
 text_content = ""
 for item in book.get_items():
