@@ -40,8 +40,9 @@ if __name__ == "__main__":
                 with open(output_file, "w", encoding="utf-8") as f_out:
                     f_out.write(f"Linting results for {file}\n")
                     f_out.write("=" * 50 + "\n")
-                    for line in results:
-                        f_out.write(line + "\n")
+                    for chapter, subtitle, para_num, sentence, word in results:
+                        f_out.write(f"Chapter '{chapter}', Subtitle '{subtitle}', Paragraph {para_num}:\n")
+                        f_out.write(f"  Repeated word: '{word}' -> {sentence}\n\n")
 
                 print(f"Issues found! Check the output file: {output_file}")
             else:

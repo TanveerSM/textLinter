@@ -8,6 +8,8 @@ Aggregates results and prints reports.
 from ebooklib import epub
 from bs4 import BeautifulSoup
 from linter.rules import find_repeated_words
+import spacy
+nlp = spacy.load("en_core_web_sm")
 
 
 def runLinter(file):
@@ -31,12 +33,16 @@ def runLinter(file):
                     para_text = element.get_text()
                     repeated_in_para = find_repeated_words(para_text)
 
-                    for word, start, end in repeated_in_para:
-                        snippet = para_text[start:end]
-                        results.append(
-                            f"Chapter '{item.get_id()}', Subtitle '{current_subtitle}', Paragraph {para_counter}:\n"
-                            f"  Repeated word: '{word}' -> '{snippet}'"
-                        )
+                    if repeated_in_para:
+                        # split paragraph into sentences with spaCy
+                        doc = nlp(para_text)
+                        for word, start, end in repeated_in_para:
+                            # find which sentence contains the repeated word
+                            for sent in doc.sents:
+                                if start >= sent.start_char and end <= sent.end_char:
+                                    results.append(
+                                        (item.get_id(), current_subtitle, para_counter, sent.text, word)
+                                    )
 
     return results
 

@@ -4,7 +4,7 @@ import re
 def find_repeated_words(text):
     """
     Finds consecutive repeated words in the text.
-    Returns a list of tuples: (word, start_index, end_index)
+    Returns a list of tuples: [(word, start_index, end_index)]
     """
     # Regex explanation:
     # \b(\w+)\b  → captures a word
