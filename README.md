@@ -13,9 +13,9 @@ The goal isn’t to criticize authors, but to explore **practical text analysis*
 - Shows the first few occurrences for quick review
 
 ## Usage
-1. Place your EPUB file in the project folder.  
-2. Update the file path in `core.py`.  
+1. Place your EPUB file in the project eBook folder
 3. Run the script:
    ```bash
-   python core.py
-4. Review the output to see repeated words by chapter, subtitle, and paragraph.
+   python main.py
+   ```
+4. Review the output in the eBook folder to see repeated words by chapter, subtitle, and paragraph.
