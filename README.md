@@ -19,3 +19,8 @@ The goal isn’t to criticize authors, but to explore **practical text analysis*
    python main.py
    ```
 4. Review the output in the eBook folder to see repeated words by chapter, subtitle, and paragraph.
+
+## Example Output
+Chapter 'chapter10', Subtitle 'PITCH PERFECT—OR HOW CONDUCTORS FOSTER ORIGINALITY', Paragraph 22:
+
+  Repeated word: 'can' -> One study even showed that it can can also help ward off serious injuries.
